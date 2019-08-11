@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/admin/airplanedelete}"
+      th:object="${deleteairplane}" method="POST" role="form">
+
+    <div>
+        <input type="text" th:field="*{nickName}" placeholder="NickName" >
+    </div>
+
+    <button type="submit">DeleteAirPlane</button>
+
+</form>
+
+</body>
+</html>

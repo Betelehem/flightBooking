@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+       <form action="#" th:action="@{/admin/airpage}"
+            th:object="${airport}" method="POST" role="form">
+
+           <div>
+               <input type="text" th:field="*{city}" placeholder="City" >
+           </div>
+           <div>
+               <input type="text" th:field="*{state}" placeholder="State" >
+           </div>
+           <div>
+               <input type="text" th:field="*{nickName}" placeholder="NickName" >
+           </div>
+
+           <button type="submit">AddAirPort</button>
+
+           </form>
+
+</body>
+</html>

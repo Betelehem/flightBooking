@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/admin/airplanepage}"
+      th:object="${airplane}" method="POST" role="form">
+
+    <div>
+        <input type="text" th:field="*{serialNumber}" placeholder="Serial Number" >
+    </div>
+    <div>
+        <input type="text" th:field="*{model}" placeholder="Model" >
+    </div>
+    <div>
+        <input type="text" th:field="*{capacity}" placeholder="Capacity" >
+    </div>
+
+    <button type="submit">AddAirPlane</button>
+
+</form>
+
+</body>
+</html>

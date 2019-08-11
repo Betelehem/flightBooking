@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/admin/addflight}"
+      th:object="${setflight}" method="POST" role="form">
+
+    <div>
+        <input type="text" th:field="*{flightNumber}" placeholder="Flight Number" >
+    </div>
+    <div>
+        <input type="date" th:field="*{startingTime}" placeholder="Departure Time" >
+    </div>
+    <div>
+        <input type="date" th:field="*{destinationTime}" placeholder="Arrival Time" >
+    </div>
+    <div>
+        <input type="text" th:field="*{deprtureAirPort.nickName}" placeholder="Departure Location NickName" >
+    </div>
+    <div>
+        <input type="text" th:field="*{arrivalAirPort.nickName}" placeholder="Arrival Location NickName" >
+    </div>
+    <div>
+        <input type="text" th:field="*{airPlane.serialNumber}" placeholder="AirPlane Serial Number" >
+    </div>
+
+    <button type="submit">AddFlight</button>
+
+</form>
+
+</body>
+</html>
