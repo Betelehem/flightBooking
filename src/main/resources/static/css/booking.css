@@ -1,0 +1,105 @@
+body{
+
+    background-image: url("https://www.bing.com/images/search?view=detailV2&ccid=%2fjlDi%2bi5&id=545B19516881146B8D97D1020DF963D7EFBB575C&thid=OIP._jlDi-i5qXSGDJ0u_GssOgHaDM&mediaurl=https%3a%2f%2fpsf_blog.s3.amazonaws.com%2fblog%2fwp-content%2fuploads%2f2014%2f08%2fflights.jpg&exph=303&expw=703&q=flight+pictures&simid=608026806639463662&selectedIndex=5&ajaxhist=0");
+    background-size: cover;
+    background-position: center;
+}
+.booking-form-box{
+    max-width: 350px;
+    border: 1px solid #ced4da;
+    margin: 10% auto 0;
+}
+.radio-btn{
+    margin: 0 20px;
+}
+.radio-btn .btn {
+    margin: 20px 10px 20px 0;
+    box-shadow: none;
+}
+.radio-btn .btn::after{
+    content: '';
+    height: 15px;
+    width: 15px;
+    top: -2px;
+    left: -1px;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    border: 3px solid #fff;
+    visibility: visible;
+    border-radius: 50%;
+}
+.radio-btn .btn:checked::after{
+    content: '';
+    background-color: #000;
+    transition: 0.5s;
+}
+.radio-btn span{
+    color: #fff;
+    margin-right: 5px;
+    font-size: 12px;
+}
+.booking-form{
+    padding: 0 20px 20px;
+}
+
+.booking-form label{
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+}
+input::placeholder{
+    color: #fff;!important;
+}
+.input-grp{
+    width: 151px;
+    display: inline-block;
+}
+.form-control{
+    font-size: 12px;
+    border-radius: 0;
+    color: #fff;
+    background: transparent;
+    box-shadow: none!important;
+}
+.select-date::-webkit-inner-spin-button,
+.select-date::-webkit-outer-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.select-date::-webkit-calendar-picker-indicator
+{
+    background:transparent!important; ;
+}
+.custom-select
+{
+    color: #fff!important;
+    font-size: 12px!important;
+    border: 1px solid #ced4da!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    background: transparent!important;
+}
+.custom-select option
+{
+    color: #333;
+}
+.flight
+{
+    width:100%!important;
+    padding: 9px 0!important;
+    font-size: 12px!important;
+    border: 1px solid #ced4da!important;
+    background: transparent!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+}
+.flight:hover
+{
+    background: #fff!important;
+    color: #000!important;
+    transition:0.5s ;
+}
+

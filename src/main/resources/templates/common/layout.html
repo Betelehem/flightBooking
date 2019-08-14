@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>FLIGHT RESERVATION SYSTEM</title>
+
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/non-responsive.css}" rel="stylesheet" />
+
+    <!-- data table -->
+    <link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="@{/css/style.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/signup.css}" rel="stylesheet">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <link th:href="@{/css/booking.css}" rel="stylesheet">
+    <link th:href="@{/css/addeditdelet.css}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Flight Reservation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')" >
+                <a class="nav-link dropdown-toggle" href="#" id="flightDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Flight
+                </a>
+                <div class="dropdown-menu" aria-labelledby="flightDropdown">
+                    <a class="dropdown-item" href="/flight/add" >Add Flight</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/flight/all">Updte Flight</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link dropdown-toggle" href="#" id="addDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Add
+                </a>
+                <div class="dropdown-menu" aria-labelledby="addDropdown">
+                    <a class="dropdown-item" href="/addairport">Airport</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/addairline">Airline</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link dropdown-toggle" href="#" id="editDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Edit
+                </a>
+                <div class="dropdown-menu" aria-labelledby="editDropdown">
+                    <a class="dropdown-item" href="/edit/add">Airport</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Airline</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                    <a class="dropdown-item" href="#">Add account</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Edit account</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown" sec:authorize="hasRole('CUSTOMER')">
+                <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Flight
+                </a>
+                <div class="dropdown-menu" aria-labelledby="customerDropdown">
+                    <a class="dropdown-item" href="#">book flight</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">search flight</a>
+                </div>
+            </li>
+
+
+
+
+        </ul>
+
+        <span sec:authorize="isAuthenticated()">
+<a href="/logout" class="btn btn-outline-success my-2 my-sm-0 pull-right">Logout</a>
+</span>
+
+    </div>
+</nav>
+
+<div th:fragment="footer">
+    <br />
+    <br />
+    <footer>
+        <div class="row">
+            <!--<div class="col-xs-3 footerleft">-->
+                <!--<div class="logofooter">-->
+                    <!--<a th:href="@{/}"><img class="img-responsive"-->
+                                           <!--src="/image/logo.png" style="width: 200px;" /></a>-->
+                <!--</div>-->
+                <!--<p>-->
+                    <!--Mum Shoes Store. <br />Serving our customers with the-->
+                    <!--best.-->
+                <!--</p>-->
+            <!--</div>-->
+            <!--<div class="col-xs-3 paddingtop-bottom">-->
+                <!--<h6 class="heading7">CONTACT</h6>-->
+                <!--<ul class="post">-->
+                    <!--<p>-->
+                        <!--<i class="fa fa-map-pin"></i> 1000 N 4th S<br /> FairField IO, USA-->
+                        <!--02112-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--<i class="fa fa-phone"></i> Phone (USA) : +1 999 999 9999-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--<i class="fa fa-envelope"></i> E-mail : info@eit@edu.er-->
+                    <!--</p>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="col-xs-3 paddingtop-bottom">-->
+                <!--<h6 class="heading7">LINKS</h6>-->
+                <!--<ul class="footer-ul">-->
+                    <!--<li><a href="#"> Privacy Policy</a></li>-->
+                    <!--<li><a href="#"> Terms &#38; Conditions</a></li>-->
+                    <!--<li><a href="#"> Frequently Ask Questions</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <div class="copyright">
+                <div class="col-md-6">
+                    <p>© 2019 - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+</div>
+
+<div th:fragment="body-bottom-scripts">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <!-- data table -->
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+
+    <!--<script th:src="@{/js/scripts.js}"></script>-->
+</div>
+</body>
+</html>

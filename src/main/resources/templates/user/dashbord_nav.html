@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Flight Reservation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/welcome">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')" >
+                <a class="nav-link dropdown-toggle" href="#" id="flightDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Flight
+                </a>
+                <div class="dropdown-menu" aria-labelledby="flightDropdown">
+                    <a class="dropdown-item" href="/flight/add" >Add Flight</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/flight/all">Updte Flight</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link dropdown-toggle" href="#" id="addDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Add
+                </a>
+                <div class="dropdown-menu" aria-labelledby="addDropdown">
+                    <a class="dropdown-item" href="/addairport">Airport</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/addairline">Airline</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link dropdown-toggle" href="#" id="editDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Edit
+                </a>
+                <div class="dropdown-menu" aria-labelledby="editDropdown">
+                    <a class="dropdown-item" href="/edit/add">Airport</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/edit">Airline</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                    <a class="dropdown-item" href="/account/add">Add account</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/account/all">Edit account</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown" sec:authorize="hasRole('CUSTOMER')">
+                <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Flight
+                </a>
+                <div class="dropdown-menu" aria-labelledby="customerDropdown">
+                    <a class="dropdown-item" href="/flightbooking">book flight</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/">search flight</a>
+                </div>
+            </li>
+
+
+
+
+        </ul>
+
+        <span sec:authorize="isAuthenticated()">
+<a href="/logout" class="btn btn-outline-success my-2 my-sm-0 pull-right">Logout</a>
+</span>
+
+    </div>
+</nav>
+</body>
+</html>

@@ -1,14 +1,15 @@
 package mum.edu.flightbooking.entity;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
+@Data
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -21,18 +22,21 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
     private String gender;
-    private boolean isAdmin;
+    @Column(name = "active")
+    private boolean active;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     public User(){}
 
-    public User(String firstName, String lastName, String email, String password, Date dob, String gender, boolean isAdmin) {
+    public User(String firstName, String lastName, String email, String password, Date dob, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.dob = dob;
         this.gender = gender;
-        this.isAdmin = isAdmin;
     }
 
     public Long getId() {
@@ -41,6 +45,22 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getFirstName() {
@@ -91,11 +111,18 @@ public class User {
         this.gender = gender;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", dob=" + dob +
+                ", gender='" + gender + '\'' +
+                ", active=" + active +
+                ", roles=" + roles +
+                '}';
     }
 }

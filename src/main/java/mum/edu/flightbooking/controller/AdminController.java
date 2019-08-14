@@ -10,10 +10,7 @@ import mum.edu.flightbooking.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -92,8 +89,38 @@ public class AdminController {
     public String addFlightPost(@ModelAttribute("setflight") Flight flight){
 
         flightService.addFlight(flight);
+
         return "redirect:/admin/homePage";
+    }
+    @GetMapping("/allflightadmin")
+    public String editFlightGet(Model theModel){
+        theModel.addAttribute("editdelete",flightService.allFlight());
+        return "admin/editDeletePage";
+    }
+    @GetMapping("/flightNumber")
+    public String editPage(@RequestParam("flightId") Long flightId,Model theModel){
+
+            theModel.addAttribute("editflight",flightService.findById(flightId));
+
+        return "admin/editPage";
+    }
+    @PostMapping("flightNumber")
+    public String editFlightPost(@ModelAttribute("editflight") Flight flight){
+        System.out.println("id======================="+flight.getId());
+        flightService.addFlight(flight);
+//        flightService.deleteById(flight.getId());
+        return "redirect:/admin/homePage";
+    }
+    @GetMapping("/cancelFlight")
+    public String cancelFlight(@RequestParam("flightId") Long flightId){
+
+        flightService.deleteById(flightId);
+
+        return "admin/adminPage";
     }
 
 
 }
+
+
+

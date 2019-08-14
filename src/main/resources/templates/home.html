@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
+    <style >
+        .buttonSign {
+            background-color: green;
+            border-radius: 5px;
+            color: white;
+            padding: .5em;
+            text-decoration: none;
+        }
+        .buttonSearch {
+            background-color: blueviolet;
+            border-radius: 5px;
+            color: white;
+            padding: .5em;
+            text-decoration: none;
+        }
+        .buttonAdmin {
+            background-color: deepskyblue;
+            border-radius: 5px;
+            color: white;
+            padding: .5em;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
-       <a th:href="@{/user/sign}">signUp</a> <br>
+       <a th:href="@{/user/sign}" class="buttonSign">signUp</a> <br><br><br>
 
-       <a th:href="@{/admin/homePage}">AdminFunctionality</a>
+       <a th:href="@{/user/findingform}" class="buttonSearch">SearchFlight</a> <br><br><br>
+
+       <a th:href="@{/admin/homePage}" class="buttonAdmin">AdminFunctionality</a>
 
 </body>
 </html>

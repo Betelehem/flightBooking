@@ -1,27 +1,114 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 
-<form action="#" th:action="@{/admin/airplanepage}"
-      th:object="${airplane}" method="POST" role="form">
 
-    <div>
-        <input type="text" th:field="*{serialNumber}" placeholder="Serial Number" >
-    </div>
-    <div>
-        <input type="text" th:field="*{model}" placeholder="Model" >
-    </div>
-    <div>
-        <input type="text" th:field="*{capacity}" placeholder="Capacity" >
-    </div>
+<div class="container" style="margin-top:30px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
 
-    <button type="submit">AddAirPlane</button>
 
-</form>
+            <div class="panel-heading">
+                <h5 class="card-header info-color white-text text-center py-3 mb-3" style="background-color: #00FFFF;">
+                    <strong>Add AirPlane</strong>
+                </h5></div>
 
-</body>
-</html>
+            <div class="panel-body">
+                <form action="#" th:action="@{/admin/airplanepage}"
+                    th:object="${airplane}" method="POST" role="form">
+
+                                  <div class="row">
+                                      <div class="col-xs-12 col-sm-5 col-md-5">
+                                          <div class="form-group">
+                                              <input type="text" th:field="*{serialNumber}" placeholder="Serial Number"
+                                                     class="form-control "
+                                                     tabindex="1">
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+                                  <div class="row">
+                                      <div class="col-xs-12 col-sm-5 col-md-5">
+                                          <div class="form-group">
+                                              <input type="text" th:field="*{model}" placeholder="Model"
+                                                     class="form-control "
+                                                     tabindex="1">
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="row">
+                                      <div class="col-xs-12 col-sm-5 col-md-5">
+                                          <div class="form-group">
+                                              <input type="text" th:field="*{capacity}" placeholder="Capacity"
+                                                     class="form-control "
+                                                     tabindex="1">
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+
+                                  <button type="submit" class="btn btn-success col-2">AddAirPlane</button>
+
+                              </form>
+                          </div>
+                          <br><br><br>
+                      </div>
+
+                  </div>
+
+              </div>
+
+
+
+
+              </body>
+              </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!--<form action="#" th:action="@{/admin/airplanepage}"-->
+      <!--th:object="${airplane}" method="POST" role="form">-->
+
+    <!--<div>-->
+        <!--<input type="text" th:field="*{serialNumber}" placeholder="Serial Number" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{model}" placeholder="Model" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{capacity}" placeholder="Capacity" >-->
+    <!--</div>-->
+
+    <!--<button type="submit">AddAirPlane</button>-->
+
+<!--</form>-->

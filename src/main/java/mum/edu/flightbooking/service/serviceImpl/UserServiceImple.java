@@ -16,11 +16,16 @@ public class UserServiceImple implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User signUpMethod(User theUser) {
+    public User save(User theUser) {
         if(userRepository.findByEmail(theUser.getEmail())!=null){
             System.out.println("the user already exist");
             return null;
         }
         return userRepository.save(theUser);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:form="http://www.w3.org/1999/html">
+<head th:replace="common/layout :: common-header">
+    <!--<title>Flight Tecket Booking Form</title>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<link rel ="stylesheet" href=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <!--&lt;!&ndash;Fontawesome CDN&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">-->
+
+    <!--&lt;!&ndash;Custom styles&ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/booking.css}">-->
+</head>
+<body>
+<div th:replace="common/layout :: navbar" />
+<form class="booking-form-box" th:action="@{/flight}" method="post" accept-charset="utf-8" role="form">
+    <div class="radio-button">
+        <input type="radio" class="btn" name="check" checked="checked">
+        <span>Roundtrip</span>
+        <input type="radio" class="btn" name="check"><span>One Way</span>
+        <input type="radio" class="btn" name="check"><span>Multiy-City</span>
+
+    </div>
+    <div class="booking-form">
+        <label>Flying Form</label>
+        <input type="text" class="form-control" placeholder="City or Airport">
+        <label>Flying To</label>
+        <input type="text" class="form-control" placeholder="City or Airport">
+
+        <div class="input-grp">
+            <label>Returning</label>
+            <input type="date" class="form-control select-date">
+        </div>
+
+        <div class="input-grp">
+            <label>Adults</label>
+            <input type="number" class="form-control" value="1">
+        </div>
+
+        <div class="input-grp">
+            <label>Children</label>
+            <input type="number" class="form-control" value="0">
+        </div>
+
+        <div class="input-grp">
+            <label>Travel Class</label>
+            <select class="custom-select">
+                <option value="1">Economy Class</option>
+                <option value="1">Business Class</option>
+            </select>
+        </div>
+
+        <form class="input-grp">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+    </div>
+</form>
+
+<div th:replace="common/layout :: footer"></div>
+<div th:replace="common/layout :: body-bottom-scripts"></div>
+</body>
+</html>

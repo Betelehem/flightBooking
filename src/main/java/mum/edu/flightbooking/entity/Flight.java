@@ -5,7 +5,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Flight {
@@ -14,6 +13,9 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String flightNumber;
+    private Double basicPrice;
+    private Double mainPrice;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")//yyyy-MM-dd HH:mm:ss
     private Date startingTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -22,21 +24,19 @@ public class Flight {
 //    private ELevel level;
 
     @OneToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name="departAirPort_id", unique= true, nullable=true, insertable=true, updatable=true)
-    private List<AirPortLocation> deprtureAirPort;
+    @JoinColumn(name="departAirPort_id",  nullable=true, insertable=true, updatable=true)
+    private AirPortLocation deprtureAirPort;
     @OneToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name="arrivalAirPort_id", unique= true, nullable=true, insertable=true, updatable=true)
-    private List<AirPortLocation> arrivalAirPort;
-
-
+    @JoinColumn(name="arrivalAirPort_id",  nullable=true, insertable=true, updatable=true)
+    private AirPortLocation arrivalAirPort;
     @OneToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name="airPlane_id", unique= true, nullable=true, insertable=true, updatable=true)
+    @JoinColumn(name="airPlane_id",  nullable=true, insertable=true, updatable=true)
     private AirPlane airPlane;
 
     public Flight(){}
 
     public Flight(String flightNumber, Date startingTime, Date destinationTime,
-                  List<AirPortLocation> deprtureAirPort, List<AirPortLocation> arrivalAirPort, AirPlane airPlane) {
+                  AirPortLocation deprtureAirPort, AirPortLocation arrivalAirPort, AirPlane airPlane) {
         this.flightNumber = flightNumber;
         this.startingTime = startingTime;
         this.destinationTime = destinationTime;
@@ -78,7 +78,22 @@ public class Flight {
         this.destinationTime = destinationTime;
     }
 
-//    public ELevel getLevel() {
+    public Double getBasicPrice() {
+        return basicPrice;
+    }
+
+    public void setBasicPrice(Double basicPrice) {
+        this.basicPrice = basicPrice;
+    }
+
+    public Double getMainPrice() {
+        return mainPrice;
+    }
+
+    public void setMainPrice(Double mainPrice) {
+        this.mainPrice = mainPrice;
+    }
+    //    public ELevel getLevel() {
 //        return level;
 //    }
 //
@@ -86,23 +101,19 @@ public class Flight {
 //        this.level = level;
 //    }
 
-    public void addDeparture(AirPortLocation airPortLocation){
-
-    }
-
-    public List<AirPortLocation> getDeprtureAirPort() {
+    public AirPortLocation getDeprtureAirPort() {
         return deprtureAirPort;
     }
 
-    public void setDeprtureAirPort(List<AirPortLocation> deprtureAirPort) {
+    public void setDeprtureAirPort(AirPortLocation deprtureAirPort) {
         this.deprtureAirPort = deprtureAirPort;
     }
 
-    public List<AirPortLocation> getArrivalAirPort() {
+    public AirPortLocation getArrivalAirPort() {
         return arrivalAirPort;
     }
 
-    public void setArrivalAirPort(List<AirPortLocation> arrivalAirPort) {
+    public void setArrivalAirPort(AirPortLocation arrivalAirPort) {
         this.arrivalAirPort = arrivalAirPort;
     }
 

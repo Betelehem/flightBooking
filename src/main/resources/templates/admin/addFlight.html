@@ -1,36 +1,193 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 
-<form action="#" th:action="@{/admin/addflight}"
-      th:object="${setflight}" method="POST" role="form">
 
-    <div>
-        <input type="text" th:field="*{flightNumber}" placeholder="Flight Number" >
-    </div>
-    <div>
-        <input type="date" th:field="*{startingTime}" placeholder="Departure Time" >
-    </div>
-    <div>
-        <input type="date" th:field="*{destinationTime}" placeholder="Arrival Time" >
-    </div>
-    <div>
-        <input type="text" th:field="*{deprtureAirPort.nickName}" placeholder="Departure Location NickName" >
-    </div>
-    <div>
-        <input type="text" th:field="*{arrivalAirPort.nickName}" placeholder="Arrival Location NickName" >
-    </div>
-    <div>
-        <input type="text" th:field="*{airPlane.serialNumber}" placeholder="AirPlane Serial Number" >
+<div class="container" style="margin-top:30px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+
+
+            <div class="panel-heading">
+                <h5 class="card-header info-color white-text text-center py-3 mb-3" style="background-color: #00FFFF;">
+                    <strong>Add Flight</strong>
+                </h5></div>
+
+            <div class="panel-body">
+                <form action="#" th:action="@{/admin/addflight}"
+                      th:object="${setflight}" method="POST" role="form">
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="text" th:field="*{flightNumber}" placeholder="Flight Number"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="text" th:field="*{basicPrice}" placeholder="Basic Price"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="text" th:field="*{mainPrice}" placeholder="Main Price"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="date" th:field="*{startingTime}" placeholder="Departure Time"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="date" th:field="*{destinationTime}" placeholder="Arrival Time"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="text" th:field="*{deprtureAirPort.nickName}" placeholder="Departure Location NickName"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="text"  th:field="*{arrivalAirPort.nickName}" placeholder="Arrival Location NickName"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <div class="form-group">
+                                <input type="text" th:field="*{airPlane.serialNumber}" placeholder="AirPlane Serial Number"
+                                       class="form-control "
+                                       tabindex="1">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success col-2">AddFlight</button>
+
+                </form>
+            </div>
+            <br><br><br>
+        </div>
+
     </div>
 
-    <button type="submit">AddFlight</button>
-
-</form>
-
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<form action="#" th:action="@{/admin/addflight}"-->
+      <!--th:object="${setflight}" method="POST" role="form">-->
+
+    <!--<div>-->
+        <!--<input type="text" th:field="*{flightNumber}" placeholder="Flight Number" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{basicPrice}" placeholder="Basic Price" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{mainPrice}" placeholder="Main Price" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="date" th:field="*{startingTime}" placeholder="Departure Time" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="date" th:field="*{destinationTime}" placeholder="Arrival Time" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{deprtureAirPort.nickName}" placeholder="Departure Location NickName" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{arrivalAirPort.nickName}" placeholder="Arrival Location NickName" >-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<input type="text" th:field="*{airPlane.serialNumber}" placeholder="AirPlane Serial Number" >-->
+    <!--</div>-->
+
+    <!--<button type="submit">AddFlight</button>-->
+
+<!--</form>-->
