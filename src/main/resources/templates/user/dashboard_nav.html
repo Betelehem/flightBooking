@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
@@ -17,39 +17,42 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/welcome">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link"th:href="@{/homepage}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')" >
+            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')" >
                 <a class="nav-link dropdown-toggle" href="#" id="flightDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Flight
+                    Delete
                 </a>
                 <div class="dropdown-menu" aria-labelledby="flightDropdown">
-                    <a class="dropdown-item" href="/flight/add" >Add Flight</a>
+                    <a class="dropdown-item" th:href="@{/admin/airplanedelete}" >Airplain</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/flight/all">Updte Flight</a>
+                    <a class="dropdown-item" th:href="@{/admin/airportdelete}">Airport</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                 <a class="nav-link dropdown-toggle" href="#" id="addDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Add
                 </a>
                 <div class="dropdown-menu" aria-labelledby="addDropdown">
-                    <a class="dropdown-item" href="/addairport">Airport</a>
+
+                    <a class="dropdown-item" th:href="@{/admin/airpage}">Add Airport</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/addairline">Airline</a>
+                    <a class="dropdown-item" th:href="@{/admin/airplanepage}">Add AirPlane</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{/admin/addflight}">Add Flight</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
-                <a class="nav-link dropdown-toggle" href="#" id="editDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                <a class="nav-link dropdown-toggle" th:href="@{/}" id="editDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Edit
                 </a>
                 <div class="dropdown-menu" aria-labelledby="editDropdown">
-                    <a class="dropdown-item" href="/edit/add">Airport</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/edit">Airline</a>
+                    <!--<a class="dropdown-item" th:href="@{/admin/airpage}">Add Airport</a>
+                    <div class="dropdown-divider"></div>-->
+                    <a class="dropdown-item" th:href="@{/admin/allflightadmin}">Flight</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+           <!-- <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                 <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                 </a>
@@ -58,26 +61,22 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/account/all">Edit account</a>
                 </div>
-            </li>
+            </li>-->
 
-            <li class="nav-item dropdown" sec:authorize="hasRole('CUSTOMER')">
+            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_CUSTOMER')">
                 <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Flight
                 </a>
                 <div class="dropdown-menu" aria-labelledby="customerDropdown">
-                    <a class="dropdown-item" href="/flightbooking">book flight</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/">search flight</a>
+                    <a class="dropdown-item" th:href="@{user/findingform}">book flight</a>
+                    <!--<div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{admin/availableFlights}">search</a>-->
                 </div>
             </li>
-
-
-
-
         </ul>
 
         <span sec:authorize="isAuthenticated()">
-<a href="/logout" class="btn btn-outline-success my-2 my-sm-0 pull-right">Logout</a>
+<a href="/logout" th:href="@{/}" class="btn btn-outline-success my-2 my-sm-0 pull-right">Logout</a>
 </span>
 
     </div>

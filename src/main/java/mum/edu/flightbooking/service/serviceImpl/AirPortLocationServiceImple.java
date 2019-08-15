@@ -13,7 +13,7 @@ public class AirPortLocationServiceImple implements AirPortLocationService {
     private AirPortLocationRepository airPortLocationRepository;
 
     @Override
-    public AirPortLocation addAirPortLocation(AirPortLocation airPortLocation) {
+    public AirPortLocation save(AirPortLocation airPortLocation) {
 
         if(airPortLocationRepository.findByNickName(airPortLocation.getNickName())!=null){
             System.out.println("the location already is exist");
@@ -24,7 +24,7 @@ public class AirPortLocationServiceImple implements AirPortLocationService {
     }
 
     @Override
-    public AirPortLocation deleteAirPortLocation(String nickName) {
+    public AirPortLocation delete(String nickName) {
         if(airPortLocationRepository.findByNickName(nickName)==null){
             System.out.println("the location does not exist");
             return null;

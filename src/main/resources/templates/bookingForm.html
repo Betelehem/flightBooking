@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{user/dashboard_layout}">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="main-content">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 login">
+            <h1 class="text-center"><i class="glyphicon glyphicon-user"></i> Booking Form</h1>
+            <hr>
+            <form action="#" th:action="@{/user/flightNumber}"
+                   th:object="${loginDTO}" method="POST" role="form">
+                <div class="form-group">
+                    <label for="exampleInputEmail3">First Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail3" th:field="*{fName}" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Last Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" th:field="*{lName}" placeholder="Last Name">
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-md-5">
+                    <!-- Multiple Radios (inline) -->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" >Gender:</label>
+                        <select class="custom-select" th:field="*{gender}">
+                            <!--   <option selected="">Choose status</option>-->
+                            <option th:value=true>Female</option>
+                            <option th:value=false>Male</option>
+                        </select>
+                       <!--  <div class="col-md-4">
+                        <label class="radio-inline" for="gender-0"> Male</label>
+                                  <br>
+                             <input type="radio" name="gender" id="gender-0" value="Male" checked="checked" th:field="*{gender}">
+                             <label class="radio-inline" for="gender-1">Female</label>
+                                <br>
+                             <input type="radio" name="gender" id="gender-1" value="Female" th:field="*{gender}">-->
+                         </div>
+                    </div>
+
+
+                <div class="col-xs-12 col-sm-5 col-md-7">
+                    <div class="form-group">
+                        Date Of Birth :
+                        <input type="date" th:field="*{dob}" class="form-control" id="dob" placeholder="Date Of Birth">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" th:field="*{email}" placeholder="Email">
+                </div>
+               <!-- <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" th:field="*{password}" placeholder="Password">
+                </div>-->
+                <div class="form-group">
+
+                    <input type="hidden" class="form-control"  th:field="*{flightId}" placeholder="Id">
+                </div>
+
+                <div class="checkbox">
+                    <!--<label>-->
+                    <!--<input type="checkbox"> Check me out-->
+                    <!--</label>-->
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <!--<div class="btn-group" role="group">-->
+                    <!--<a href="#" class="btn">Register</a>-->
+                    <!--</div>-->
+                    <div class="btn-group" role="group">
+                        <button type="submit" class="btn btn-primary">Book</button>
+                    </div>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

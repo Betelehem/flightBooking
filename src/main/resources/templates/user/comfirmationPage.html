@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{user/dashboard_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style >
+        .buttonSign {
+            background-color: green;
+            border-radius: 5px;
+            color: white;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<div layout:fragment="main-content">
+<P> Thank you for Booking with us your information is </P>
+<h4> Full Name :<span th:text="${usertocomfirm.user.firstName}"/><span th:text="${usertocomfirm.user.lastName}"/></h4> <br>
+<h4>From :<span th:text="${usertocomfirm.flight.deprtureAirPort.city}"/> =====> To<span th:text="${usertocomfirm.flight.arrivalAirPort.city}"/></h4>
+<h4>Flight Date<span <span th:text="${usertocomfirm.flight.startingTime}"/></h4>
+<h4>Comfirmation code:<span th:text="${usertocomfirm.user.lastName}"/><span th:text="${usertocomfirm.flight.flightNumber}"/><span th:text="${usertocomfirm.user.firstName}"/></h4>
+<br><br>
+<a th:href="@{/homePage}" type="submit" class="buttonSign">Done!</a> <br>
+</div>
+</body>
+</html>
